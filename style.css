@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600;700&display=swap');
+
+:root {
+  --paper: #fffdf7;
+  --ink: #171717;
+  --red: #d62828;
+  --yellow: #f6c945;
+  --soft-red: #ffe8e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Quicksand", sans-serif;
+  color: var(--ink);
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(246,201,69,.20), transparent 18%),
+    radial-gradient(circle at 85% 75%, rgba(214,40,40,.08), transparent 22%),
+    var(--paper);
+  overflow-x: hidden;
+}
+
+.paper-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(80,130,180,.10) 32px),
+    radial-gradient(rgba(0,0,0,.10) .6px, transparent .7px);
+  background-size: 100% 32px, 7px 7px;
+}
+
+.screen {
+  min-height: 100vh;
+  display: none;
+  place-items: center;
+  position: relative;
+  padding: 25px 15px;
+}
+
+.screen.active {
+  display: grid;
+}
+
+.lock-card {
+  width: min(420px, 94vw);
+  background: rgba(255,255,255,.91);
+  border: 2px solid #171717;
+  border-radius: 24px;
+  padding: 25px 24px 22px;
+  text-align: center;
+  box-shadow: 8px 9px 0 #171717;
+  position: relative;
+  z-index: 2;
+}
+
+.snoopy-placeholder {
+  width: 150px;
+  height: 115px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  border: 2px dashed #888;
+  background: #f4f0e5;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-text {
+  font-size: 35px;
+  line-height: 1.05;
+}
+
+.ImageS {
+  width: 100%;
+}
+
+.ImageS_main {
+  width: 275px;
+  height: 250px;
+}
+
+.ImageS_Letter {
+  width: 150px;
+  height: 175px;
+}
+
+.placeholder-text small {
+  display: block;
+  font: 12px "Quicksand", sans-serif;
+  color: #666;
+  padding: 0 10px;
+}
+
+.dog-ear {
+  display: none;
+}
+
+.tiny-note, .eyebrow, .hint {
+  font-family: "Patrick Hand", cursive;
+  font-size: 18px;
+}
+
+.tiny-note {
+  margin: 5px 0 0;
+  transform: rotate(-1deg);
+}
+
+h1 {
+  margin: 8px 0 4px;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 0 0 15px;
+  color: #555;
+}
+
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 17px 0;
+}
+
+.pin-display span {
+  width: 17px;
+  height: 17px;
+  border: 2px solid #171717;
+  border-radius: 50%;
+  transition: .15s;
+}
+
+.pin-display span.filled {
+  background: #171717;
+  transform: scale(1.1);
+}
+
+.error-message {
+  display: none;
+  background: var(--soft-red);
+  border: 1px solid var(--red);
+  border-radius: 12px;
+  padding: 9px;
+  margin: -5px 0 12px;
+  color: #9f1717;
+  font-weight: 700;
+}
+
+.error-message.show {
+  display: block;
+  animation: shake .35s;
+}
+
+.error-message small {
+  font-weight: 600;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 290px;
+  margin: auto;
+}
+
+.keypad button {
+  border: 2px solid #171717;
+  background: #fff;
+  border-radius: 15px;
+  min-height: 58px;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 3px 0 #171717;
+  transition: transform .08s, box-shadow .08s;
+}
+
+.keypad button:hover {
+  background: #fff8d8;
+}
+
+.keypad button:active {
+  transform: translate(2px, 3px);
+  box-shadow: 0 0 0 #171717;
+}
+
+.keypad .special {
+  background: #f2f2f2;
+}
+
+.keypad .enter {
+  background: var(--yellow);
+}
+
+.hint {
+  margin: 15px 0 0;
+  color: #666;
+}
+
+#birthdayScreen {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.9), rgba(255,253,247,.55)),
+    #fffdf7;
+}
+
+.birthday-content {
+  width: min(650px, 92vw);
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  animation: appear .9s ease both;
+}
+
+.top-snoopy {
+  font-size: 80px;
+  margin-bottom: -10px;
+  filter: grayscale(1);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 24px;
+}
+
+h2 {
+  margin: 4px 0;
+  font-size: clamp(48px, 10vw, 86px);
+  line-height: .88;
+  letter-spacing: -3px;
+}
+
+h2 span {
+  color: var(--red);
+  text-shadow: 3px 3px 0 var(--yellow);
+}
+
+.for-name {
+  font-size: 24px;
+  margin: 15px 0 0;
+}
+
+.cake {
+  font-size: 65px;
+  margin: 8px 0;
+  animation: cakeBounce 1.5s ease-in-out infinite;
+}
+
+.message-card {
+  background: rgba(255,255,255,.93);
+  border: 2px solid #171717;
+  border-radius: 22px;
+  padding: 20px;
+  max-width: 510px;
+  margin: 0 auto;
+  box-shadow: 6px 7px 0 #171717;
+}
+
+.message-card p {
+  margin: 7px 0;
+  line-height: 1.6;
+}
+
+#messageButton {
+  margin-top: 13px;
+  border: 2px solid #171717;
+  background: var(--yellow);
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -160px;
+  font-size: 70px;
+  z-index: 2;
+  animation: floatUp linear forwards;
+  user-select: none;
+}
+
+.balloon:nth-child(3n) { font-size: 58px; }
+.balloon:nth-child(4n) { font-size: 82px; }
+
+.confetti {
+  position: absolute;
+  width: 9px;
+  height: 15px;
+  top: -30px;
+  z-index: 4;
+  animation: confettiFall linear forwards;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,20,20,.58);
+  display: none;
+  place-items: center;
+  padding: 20px;
+  z-index: 20;
+}
+
+.modal.open {
+  display: grid;
+}
+
+.letter {
+  width: min(530px, 94vw);
+  background: #fffdf7;
+  border: 2px solid #171717;
+  border-radius: 5px;
+  padding: 32px;
+  position: relative;
+  box-shadow: 9px 10px 0 #171717;
+  transform: rotate(-1deg);
+  animation: letterIn .35s ease both;
+}
+
+.letter h3 {
+  font-family: "Patrick Hand", cursive;
+  font-size: 40px;
+  margin: 5px 0 15px;
+}
+
+.letter p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.letter-snoopy {
+  font-size: 55px;
+}
+
+.letter-date {
+  font-size: 13px !important;
+  color: #777;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.music-hint {
+  display: none;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: white;
+  border: 1px solid #171717;
+  border-radius: 20px;
+  padding: 8px 12px;
+  z-index: 30;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-9px); }
+  75% { transform: translateX(9px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes cakeBounce {
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) rotate(-8deg); opacity: 1; }
+  to { transform: translateY(-125vh) rotate(12deg); opacity: .9; }
+}
+
+@keyframes confettiFall {
+  from { transform: translateY(0) rotate(0); }
+  to { transform: translateY(115vh) rotate(720deg); }
+}
+
+@keyframes letterIn {
+  from { transform: rotate(-1deg) scale(.7); opacity: 0; }
+  to { transform: rotate(-1deg) scale(1); opacity: 1; }
+}
+
+@media (max-width: 500px) {
+  .lock-card {
+    padding: 20px 16px;
+  }
+
+  .keypad {
+    gap: 8px;
+  }
+
+  .keypad button {
+    min-height: 55px;
+  }
+
+  h2 {
+    letter-spacing: -2px;
+  }
+
+  .message-card {
+    padding: 16px;
+  }
+
+  .letter {
+    padding: 25px 20px;
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Un regalo para ti 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="paper-texture"></div>
+
+  <!-- PANTALLA DE BLOQUEO -->
+  <main id="lockScreen" class="screen active">
+    <div class="lock-card">
+      <div class="snoopy-placeholder" id="lockImage">
+        <div class="dog-ear">◕</div>
+        <img src="assets/S_Detective.png" class="ImageS" alt="Snoopy">
+      </div>
+
+      <p class="tiny-note">✉ Un pequeño regalo está esperando...</p>
+      <h1>🔒 Regalo protegido</h1>
+      <p class="subtitle">Solo alguien especial puede abrirlo.</p>
+
+      <div id="pinDisplay" class="pin-display" aria-label="Código introducido">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div id="errorMessage" class="error-message">
+        ❌ Código incorrecto<br>
+        <small>Snoopy dice que lo intentes otra vez...</small>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button data-key="clear" class="special">⌫</button>
+        <button data-key="0">0</button>
+        <button data-key="enter" class="enter">✓</button>
+      </div>
+
+      <p class="hint">Pista: La respuesta eres tu</p>
+    </div>
+  </main>
+
+  <!-- PANTALLA DE CUMPLEAÑOS -->
+  <main id="birthdayScreen" class="screen">
+    <div id="balloonContainer"></div>
+    <div id="confettiContainer"></div>
+
+    <div class="birthday-content">
+      <div class="top-snoopy"><img src="assets/S_Cumpleaños.gif" class="ImageS_main" alt="Snoopy"></div>
+      <p class="eyebrow">Hoy es un día muy especial ✨</p>
+      <h2>¡FELIZ<br><span>CUMPLEAÑOS!</span> 🎂</h2>
+      <p class="for-name">Para <strong id="recipientName">Linchy </strong> ❤️</p>
+
+      <div class="cake">🎂</div>
+
+      <div class="message-card">
+        <p>
+          Mi niña
+        </p>
+        <p>
+          Te deseo feliz cumpleaños amolcito
+        </p>
+        <button id="messageButton">💌 Abrir mi mensaje</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="letterModal" class="modal">
+    <div class="letter">
+      <button id="closeLetter" class="close">×</button>
+      <div class="letter-snoopy"><img src="assets/S_cool.png" class="ImageS_Letter" alt="Snoopy"></div>
+      <p class="letter-date">19 / 09 / 2026</p>
+      <h3>Para ti ❤️</h3>
+      <p id="personalMessage">
+        Espero que pases tu cumpleaños de la manera mas feliz posible y bonita, te amoo
+      </p>
+      <p>Con mucho cariño,</p>
+      <p><strong>❤️ Ovidio</strong></p>
+    </div>
+  </div>
+
+  <!--Deje esto por aqui si pongo musica, si no no se ocupa-->
+  <div id="musicHint" class="music-hint">🔊 Música</div>
+  <audio id="birthdayMusic" loop>
+    <source src="assets/cumpleanos.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
